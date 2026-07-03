@@ -1,0 +1,9 @@
+# تجاهل الـ node_modules في كلا الفولدرين
+back/node_modules/
+front/node_modules/
+
+# تجاهل ملفات الإعدادات والبيئة
+.env
+
+# تجاهل ملفات النظام
+.DS_Store

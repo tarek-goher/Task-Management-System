@@ -1,0 +1,114 @@
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 24px 32px;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.container h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 24px;
+    font-size: 26px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* هنا تحدد أنك تريد عمودين فقط */
+  gap: 20px;
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+}
+
+form label {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: -6px;
+}
+
+form input {
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+form input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+form button {
+    margin-top: 8px;
+    padding: 10px 16px;
+    background-color: #3b82f6;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+form button:hover {
+    background-color: #2563eb;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table tr:first-child {
+    background-color: #f3f4f6;
+    font-weight: 600;
+    color: #374151;
+}
+
+table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 14px;
+    color: #374151;
+}
+
+table tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+table button {
+    padding: 6px 12px;
+    margin-right: 6px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #fff;
+}
+
+table button:first-child {
+    background-color: #10b981;
+}
+
+table button:first-child:hover {
+    background-color: #059669;
+}
+
+table button:last-child {
+    background-color: #ef4444;
+}
+
+table button:last-child:hover {
+    background-color: #dc2626;
+}

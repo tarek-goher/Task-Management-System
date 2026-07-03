@@ -1,0 +1,239 @@
+/* TaskManger.css */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf3 100%);
+  min-height: 100vh;
+}
+
+.container h1 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+  color: #2d2d3a;
+  margin-bottom: 30px;
+  letter-spacing: 0.5px;
+}
+
+/* بطاقة الفورم */
+.task {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  margin-bottom: 30px;
+}
+
+.task form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.task label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #555;
+  margin-top: 10px;
+}
+
+.task input,
+.task select {
+  padding: 12px 16px;
+  border: 1.5px solid #dfe3ec;
+  border-radius: 12px;
+  font-size: 15px;
+  background: #fff;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.task input:focus,
+.task select:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 4px rgba(108, 92, 231, 0.15);
+  transform: translateY(-1px);
+}
+
+.task input[type="search"] {
+  background: #f8f9fc;
+}
+
+.task select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236c5ce7' stroke-width='3'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 16px center;
+  padding-left: 40px;
+}
+
+/* الأزرار */
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: all 0.25s ease;
+}
+
+.task button {
+  margin-top: 18px;
+  padding: 13px 20px;
+  background: linear-gradient(135deg, #6c5ce7, #8e6cf5);
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(108, 92, 231, 0.35);
+}
+
+.task button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(108, 92, 231, 0.45);
+}
+
+.task button:active {
+  transform: translateY(0);
+}
+
+/* عنوان "Last Task" */
+h3 {
+  color: #2d2d3a;
+  font-size: 20px;
+  margin-bottom: 14px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #dfe3ec;
+  margin: 30px 0;
+}
+
+/* الجدول */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+thead tr {
+  background: linear-gradient(135deg, #2d2d3a, #4a4a63);
+}
+
+thead td {
+  color: #fff;
+  font-weight: 600;
+  padding: 14px 18px;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+tbody tr {
+  transition: background 0.2s ease;
+  border-bottom: 1px solid #f0f1f5;
+}
+
+tbody tr:hover {
+  background: #f7f7fd;
+}
+
+tbody td {
+  padding: 14px 18px;
+  font-size: 14px;
+  color: #333;
+}
+
+tbody td:last-child {
+  display: flex;
+  gap: 8px;
+}
+
+tbody button {
+  padding: 8px 14px;
+  font-size: 13px;
+}
+
+tbody button:first-of-type,
+a button {
+  background: #eef0ff;
+  color: #6c5ce7;
+}
+
+tbody button:first-of-type:hover,
+a button:hover {
+  background: #6c5ce7;
+  color: #fff;
+}
+
+tbody button:last-of-type {
+  background: #ffecec;
+  color: #e74c3c;
+}
+
+tbody button:last-of-type:hover {
+  background: #e74c3c;
+  color: #fff;
+}
+
+/* زر "Show All Tasks" */
+.container > button {
+  display: block;
+  margin: 30px auto 0;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #00b894, #00cec9);
+  color: #fff;
+  font-size: 15px;
+  box-shadow: 0 6px 18px rgba(0, 184, 148, 0.35);
+}
+
+.container > button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 184, 148, 0.45);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .container {
+    padding: 16px;
+    margin: 16px;
+  }
+
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody tr {
+    margin-bottom: 12px;
+    border-radius: 12px;
+    padding: 10px;
+    border: 1px solid #eee;
+  }
+
+  tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 12px;
+  }
+}
