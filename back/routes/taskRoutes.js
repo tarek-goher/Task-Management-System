@@ -69,14 +69,14 @@ try {
 
 router.put("/:id",login,isManager,async(req , res )=>{
     const{id}=req.params;
-       const {title ,description , assigned_to ,due_date  }= req.body;
+      const {title, description, assigned_to, due_date, stat} = req.body;
     if (!title || !description || !assigned_to  ) {
         return res.status(400).json({ message:"All fields are required."})
     };
 
 try {
-  const query = 'UPDATE "tasks" SET title = $1 , description = $2, assigned_to = $3 , due_date = $4 WHERE id = $5 AND created_by = $6 RETURNING *';
-const value = [title, description, assigned_to, due_date, id, req.user.id];
+const query = 'UPDATE "tasks" SET title = $1, description = $2, assigned_to = $3, due_date = $4, stat = $5, completed_at = CASE WHEN $5 = \'done\' THEN NOW() ELSE completed_at END WHERE id = $6 AND created_by = $7 RETURNING *';
+const value = [title, description, assigned_to, due_date, stat, id, req.user.id];
     const result=await DB.query(query,value);
 if (result.rows.length === 0) {
     return res.status(404).json({ message: "Task not found." });

@@ -1,8 +1,10 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LayoutDashboard, ListPlus, ListChecks, CheckCircle2, UserPlus, LogOut } from "lucide-react";
 
+import "./side.css";
+
 const links = [
-  { to: "/Dashboard", label: "Dashboard", icon: LayoutDashboard },
+ { to: "/Dashboard", label: "Dashboard", icon: LayoutDashboard }, // خليها زي ما هي في App.tsx
   { to: "/TasksManger", label: "Add Task", icon: ListPlus },
   { to: "/ShowTask", label: "Show Tasks", icon: ListChecks },
   { to: "/EndTask", label: "Finished Tasks", icon: CheckCircle2 },
@@ -19,29 +21,25 @@ export default function Side() {
   };
 
   return (
-    <aside className="sticky top-0 h-screen w-72 shrink-0 bg-white border-r border-gray-200 flex flex-col overflow-y-auto">
+    <aside className="sidebar">
       
       {/* Logo / Header */}
-      <div className="px-6 py-7 border-b border-gray-100">
-        <h2 className="text-2xl font-bold text-gray-900">Admin Panel</h2>
-        <p className="text-sm text-gray-400 mt-1">Task Management</p>
+      <div className="sidebar-header">
+        <h2 className="sidebar-title">Admin Panel</h2>
+        <p className="sidebar-subtitle">Task Management</p>
       </div>
 
       {/* Nav Links */}
-      <nav className="flex-1 px-4 py-6 flex flex-col gap-2">
+      <nav className="sidebar-nav">
         {links.map(({ to, label, icon: Icon }) => {
           const active = location.pathname === to;
           return (
             <Link
               key={to}
               to={to}
-              className={`flex items-center gap-4 px-5 py-4 rounded-xl text-base font-semibold transition-all
-                ${active
-                  ? "bg-indigo-600 text-white shadow-sm shadow-indigo-200"
-                  : "text-gray-700 hover:bg-gray-100"
-                }`}
+              className={`sidebar-link${active ? " active" : ""}`}
             >
-              <Icon size={24} strokeWidth={2.2} />
+              <Icon size={20} strokeWidth={2.2} />
               <span>{label}</span>
             </Link>
           );
@@ -49,15 +47,89 @@ export default function Side() {
       </nav>
 
       {/* Logout */}
-      <div className="px-4 py-6 border-t border-gray-100">
+      <div className="sidebar-footer">
         <button
           onClick={handleLogout}
-          className="w-full flex items-center gap-4 px-5 py-4 rounded-xl text-base font-semibold text-red-500 hover:bg-red-50 transition-all"
+          className="sidebar-logout"
         >
-          <LogOut size={24} strokeWidth={2.2} />
+          <LogOut size={20} strokeWidth={2.2} />
           <span>Log Out</span>
         </button>
       </div>
     </aside>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { Link, useLocation, useNavigate } from "react-router-dom";
+// import { LayoutDashboard, ListPlus, ListChecks, CheckCircle2, UserPlus, LogOut } from "lucide-react";
+// // import "./side.css";
+
+// const links = [
+//   { to: "/Dashboard", label: "Dashboard", icon: LayoutDashboard },
+//   { to: "/TasksManger", label: "Add Task", icon: ListPlus },
+//   { to: "/ShowTask", label: "Show Tasks", icon: ListChecks },
+//   { to: "/EndTask", label: "Finished Tasks", icon: CheckCircle2 },
+//   { to: "/Emploees", label: "Add Employee", icon: UserPlus },
+// ];
+
+// export default function Side() {
+//   const navigate = useNavigate();
+//   const location = useLocation();
+
+//   const handleLogout = () => {
+//     localStorage.removeItem("token");
+//     navigate("/Login");
+//   };
+
+//   return (
+//     <aside className="sidebar">
+      
+//       {/* Logo / Header */}
+//       <div className="sidebar-header">
+//         <h2 className="sidebar-title">Admin Panel</h2>
+//         <p className="sidebar-subtitle">Task Management</p>
+//       </div>
+
+//       {/* Nav Links */}
+//       <nav className="sidebar-nav">
+//         {links.map(({ to, label, icon: Icon }) => {
+//           const active = location.pathname === to;
+//           return (
+//             <Link
+//               key={to}
+//               to={to}
+//               className={`sidebar-link${active ? " active" : ""}`}
+//             >
+//               <Icon size={20} strokeWidth={2.2} />
+//               <span>{label}</span>
+//             </Link>
+//           );
+//         })}
+//       </nav>
+
+//       {/* Logout */}
+//       <div className="sidebar-footer">
+//         <button
+//           onClick={handleLogout}
+//           className="sidebar-logout"
+//         >
+//           <LogOut size={20} strokeWidth={2.2} />
+//           <span>Log Out</span>
+//         </button>
+//       </div>
+//     </aside>
+//   );
+// }

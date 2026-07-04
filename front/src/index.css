@@ -1,10 +1,95 @@
-@import "tailwindcss";
-*{
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+/* =========================================================
+   Global design tokens & reset
+   Shared by every page — each page still keeps its own
+   dedicated stylesheet for page-specific rules.
+   ========================================================= */
+   @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @import url("https://fonts.googleapis.com/css2?family=Inter..."); */
+/* باقي الكود زي ما هو */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* Brand */
+  --color-primary: #4f46e5;
+  --color-primary-dark: #4338ca;
+  --color-primary-light: #eef2ff;
+
+  /* Status */
+  --color-success: #10b981;
+  --color-success-dark: #059669;
+  --color-success-light: #ecfdf5;
+  --color-danger: #ef4444;
+  --color-danger-dark: #dc2626;
+  --color-danger-light: #fef2f2;
+  --color-warning: #f59e0b;
+  --color-warning-light: #fffbeb;
+
+  /* Neutrals */
+  --color-bg: #f5f6fa;
+  --color-surface: #ffffff;
+  --color-border: #e4e7ed;
+  --color-text: #1e2233;
+  --color-text-secondary: #64748b;
+  --color-text-muted: #94a3b8;
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md: 0 8px 24px rgba(16, 24, 40, 0.08);
+  --shadow-lg: 0 16px 40px rgba(16, 24, 40, 0.12);
+
+  /* Type */
+  --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
-body{
-background-color: #f0f0f0;
-font-family: Arial, sans-serif;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+}
+
+.app-root {
+  min-height: 100vh;
+  background: var(--color-bg);
 }

@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 const  { login, isManager } = require("./middleware/login");
 const  taskRoutes = require("./routes/taskRoutes");
 const  employeeRoutes = require("./routes/employeeRoutes");
+const  charts = require("./routes/charts");
 const dotenv = require("dotenv").config();
 app.use(express.json());
 app.use(cors());
@@ -218,6 +219,12 @@ app.use("/api/tasks", taskRoutes);
 
 // -----------------------------------------------------employeeRoutes----------------------------------------------------
 app.use("/api/tasks-employees", employeeRoutes);
+
+// -----------------------------------------------------chartsRoutes----------------------------------------------------
+
+app.use("/api/charts", charts);
+
+
 
 app.listen(3000,()=>{
     console.log("the port 3000");

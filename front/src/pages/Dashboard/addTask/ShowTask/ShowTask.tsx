@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import './ShowTask.css';
 
 
 export default function ShowTask() {
@@ -69,43 +69,60 @@ const del = async(id:number)=>{
 
 
   return (
-    <div>
-    <div className="">
-        <h3>ALL task</h3>
-         <input type="search" value={search} onChange={(e)=>setSearch(e.target.value)}
-        placeholder="Search Title" className="border border-gray-300 rounded-md " />
-     
-               <table>
-         <thead>
-           <tr>
-            <td>Title</td>
-            <td>Description</td>
-            <td>employee</td>
-            <td>status</td>
-            <td>action</td>
-          </tr>         
-         </thead>
+  <div className="showtask-page">
+    <div className="showtask-card">
+      <div className="showtask-header">
+        <h3 className="showtask-title">All Tasks</h3>
+        <input
+          type="search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Search Title"
+          className="showtask-search"
+        />
+      </div>
+
+      <div className="showtask-table-wrap">
+        <table className="showtask-table">
+          <thead>
+            <tr>
+              <td>Title</td>
+              <td>Description</td>
+              <td>Employee</td>
+              <td>Status</td>
+              <td>Action</td>
+            </tr>
+          </thead>
           <tbody>
-         {filteredTasks.map((row) => {
-  const employee = employees.find((emp) => emp.id === row.assigned_to);
-  return (
-    <tr key={row.id}>
-      <td>{row.title}</td>
-      <td>{row.description}</td>
-      <td>{employee?.name}</td>
-      <td>{row.stat}</td>
-  <td>
-                  <Link to={`/EditTask/${row.id}`} >
-                   <button type="button">Update</button>
-                  </Link>
-                  <button  type="button" onClick={()=>del(row.id!)}>Delete</button>
-                </td>
-    </tr>
-  );
-})}
+            {filteredTasks.map((row) => {
+              const employee = employees.find((emp) => emp.id === row.assigned_to);
+              return (
+                <tr key={row.id}>
+                  <td>{row.title}</td>
+                  <td>{row.description}</td>
+                  <td>{employee?.name}</td>
+                  <td>
+                    <span className={`status-badge status-${row.stat?.toLowerCase().replace(" ", "-")}`}>
+                      {row.stat}
+                    </span>
+                  </td>
+                  <td>
+                    <div className="action-buttons">
+                      <Link to={`/EditTask/${row.id}`}>
+                        <button type="button" className="btn-update">Update</button>
+                      </Link>
+                      <button type="button" className="btn-delete" onClick={() => del(row.id!)}>
+                        Delete
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
     </div>
-  )
+  </div>
+);
 }

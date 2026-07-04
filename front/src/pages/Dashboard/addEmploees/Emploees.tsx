@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import './Emploees.css';
 import { Link } from "react-router-dom";
-import Side from "../../../components/sidebar/Side";
+
 
 
 interface DataEmployees {
@@ -20,18 +20,18 @@ export default function Emploees() {
         name: "", email: "", password: "", confirmPassword: ""
     });
 
-    const del=async(id:number)=>{
-     try {
-    await  axios.delete(`http://localhost:3000/api/del-user/${id}` ,  { headers: { Authorization: `Bearer ${token}` } });
-      fetchData();
-     } catch (error) {
-        
-     }
+    const del = async (id: number) => {
+        try {
+            await axios.delete(`http://localhost:3000/api/del-user/${id}`, { headers: { Authorization: `Bearer ${token}` } });
+            fetchData();
+        } catch (error) {
+
+        }
     }
     // const up = async (id: number) => {
     //     try {
     //         axios.put(`http://localhost:3000/api/up-user/${id}`, { headers: { Authorization: `Bearer ${token}` } });
-            
+
     //     } catch (error) {
     //         console.error(error)
     //     }
@@ -74,9 +74,9 @@ export default function Emploees() {
 
 
     return (
-        <div className="container">
+        <div className="employees-page">
             <div><h1>Employees</h1></div>
-            <div>
+            <div className="employees-form-card">
                 <form onSubmit={handleSubmet} >
                     <label htmlFor="name">Enter the employee's name.</label>
                     <input type="text" required placeholder="Enter the employee's name." id="name"
@@ -101,25 +101,27 @@ export default function Emploees() {
                 </form>
             </div>
 
-            <br />
-
-            <div>
+            <div className="employees-table-card">
                 <table>
-                    <tr>
+                  <thead>
+                      <tr>
                         <td>name</td>
                         <td>email</td>
                         <td>action</td>
                     </tr>
+                  </thead>
                     <tbody>
                         {input.map((row, index) => (
                             <tr key={index}>
                                 <td>{row.name}</td>
                                 <td>{row.email}</td>
                                 <td>
-                                    <Link to={`/Update/${row.id}`}>
-        <button>Update</button>
-    </Link>
-                                    <button onClick={()=>del(row.id!)} >delete</button>
+                                    <div className="employee-actions">
+                                        <Link to={`/Update/${row.id}`}>
+                                            <button className="btn-update">Update</button>
+                                        </Link>
+                                        <button className="btn-delete" onClick={() => del(row.id!)} >delete</button>
+                                    </div>
                                 </td>
                             </tr>
                         ))}

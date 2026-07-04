@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import './Update.css';
 interface DataEmployees {
     id?: number,
     name: string,
@@ -10,7 +10,7 @@ interface DataEmployees {
 }
 
 export default function Update() {
-    const { id } = useParams(); // ناخد الـ id من الرابط
+    const { id } = useParams(); 
     const [form, setFrom] = useState<DataEmployees>({
         name: "", email: "", password: ""
     });
@@ -49,28 +49,34 @@ export default function Update() {
         }
     };
 
-    return (
-        <div className="container">
-            <div><h1>Employees</h1></div>
-            <div>
-                <form onSubmit={up}>
+return (
+    <div className="update-page">
+        <div className="update-card">
+            <h1 className="update-title">Update Employee</h1>
+            <form onSubmit={up} className="update-form">
+                <div className="form-group">
                     <label htmlFor="name">Enter the employee's name.</label>
                     <input type="text" required placeholder="Enter the employee's name." id="name"
                         value={form.name}
                         onChange={(e) => setFrom({ ...form, name: e.target.value })}
                     />
+                </div>
+                <div className="form-group">
                     <label htmlFor="email">Enter the employee's email.</label>
                     <input type="email" required placeholder="Enter the employee's email." id="email"
                         value={form.email}
                         onChange={(e) => setFrom({ ...form, email: e.target.value })}
                     />
+                </div>
+                <div className="form-group">
                     <label htmlFor="password">Enter the employee's password.</label>
                     <input type="password" placeholder="Enter the employee's password." id="password"
                         value={form.password}
                         onChange={(e) => setFrom({ ...form, password: e.target.value })} />
-                    <button>Update</button>
-                </form>
-            </div>
+                </div>
+                <button className="update-btn">Update</button>
+            </form>
         </div>
-    );
+    </div>
+);
 }
