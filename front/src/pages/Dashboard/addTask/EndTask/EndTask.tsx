@@ -65,7 +65,10 @@ const del = async(id:number)=>{
   return (
     <div>
     <div className="">
-        <h3>Completed Tasks</h3>
+       <h3 className="text-2xl font-bold text-gray-800 text-center p-4 mb-6 relative inline-block left-1/2 -translate-x-1/2">
+  Completed Tasks
+  <span className="block w-16 h-1 bg-blue-800 rounded-full mx-auto mt-2"></span>
+</h3>
         <table>
          <thead>
            <tr>

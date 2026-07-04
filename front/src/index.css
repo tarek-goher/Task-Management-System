@@ -3,9 +3,12 @@
    Shared by every page — each page still keeps its own
    dedicated stylesheet for page-specific rules.
    ========================================================= */
-   @tailwind base;
+
+   @import "tailwindcss";
+
+   /* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
 
 /* @import url("https://fonts.googleapis.com/css2?family=Inter..."); */
 /* باقي الكود زي ما هو */
@@ -49,11 +52,11 @@
   --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
 }
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+} */
 
 html,
 body,

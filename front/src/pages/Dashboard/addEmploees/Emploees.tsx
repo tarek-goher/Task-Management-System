@@ -28,14 +28,7 @@ export default function Emploees() {
 
         }
     }
-    // const up = async (id: number) => {
-    //     try {
-    //         axios.put(`http://localhost:3000/api/up-user/${id}`, { headers: { Authorization: `Bearer ${token}` } });
 
-    //     } catch (error) {
-    //         console.error(error)
-    //     }
-    // }
     const fetchData = async () => {
         try {
             const res = await axios.get("http://localhost:3000/api/get-emplyoees", {

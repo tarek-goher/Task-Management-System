@@ -92,6 +92,25 @@ button {
   transition: all 0.25s ease;
 }
 
+.show-tasks-btn {
+  display: inline-block;
+  padding: 14px 30px;
+  background: linear-gradient(135deg, #146ba4, #00cec9);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 55, 184, 0.35);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  margin-top: 10px;
+  
+}
+
+.show-tasks-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 184, 148, 0.45);
+}
 .task button {
   margin-top: 18px;
   padding: 13px 20px;

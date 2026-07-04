@@ -104,7 +104,7 @@ const handleSubmet=async (e:React.FormEvent)=>{
       </div>
       <hr />
       <div className="">
-        <h3>Last Task</h3>
+        <h1>Last Task</h1>
         <table>
          <thead>
            <tr>
@@ -133,8 +133,9 @@ const handleSubmet=async (e:React.FormEvent)=>{
           </tbody>
         </table>
       </div>
-     <Link to={"/ShowTask"}>
-      <button>Show All Tasks</button></Link>
+ <Link to="/ShowTask" className="show-tasks-btn">
+  Show All Tasks
+</Link>
     </div>
   )
 }

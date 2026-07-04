@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import ProtectedRoute from './routes/ProtectedRoute';
-import Dashboard from './Dashboard';
+import Dashboard from './pages/OverView';
 import Update from './pages/Dashboard/addEmploees/update/Update';
 import Emploees from './pages/Dashboard/addEmploees/Emploees';
 import DashboardLayout from './layout/Dashboardlayout ';

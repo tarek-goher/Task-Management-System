@@ -45,6 +45,7 @@ try {
 
 
 
+// ------------------------------------Get TASK BY ID---------------------------------
 
 
 
@@ -88,24 +89,7 @@ res.status(200).json(result.rows[0]);
         })
 }
 })
-// ------------------------------------DELETE TASK---------------------------------
-
-router.delete("/:id",login,isManager,async(req , res )=>{
-    const{id}=req.params;
-    try {
-        const query= await DB.query('DELETE FROM "tasks" WHERE id=$1 RETURNING *',[id]);
-      
-       res.status(200).json({ 
-            message: "The task was successfully deleted.",
-            deletedTask: query.rows[0] 
-        });
-   } catch (error) {
-    console.error(error); 
-    res.status(500).json({ message: "error in server" });
-   }
-})
-
-
+// ------------------------------------patch TASK---------------------------------
 
 
 router.patch("/:id/status",login,async(req , res)=>{
@@ -126,6 +110,26 @@ router.patch("/:id/status",login,async(req , res)=>{
     })
  }
 })
+
+// ------------------------------------DELETE TASK---------------------------------
+
+router.delete("/:id",login,isManager,async(req , res )=>{
+    const{id}=req.params;
+    try {
+        const query= await DB.query('DELETE FROM "tasks" WHERE id=$1 RETURNING *',[id]);
+      
+       res.status(200).json({ 
+            message: "The task was successfully deleted.",
+            deletedTask: query.rows[0] 
+        });
+   } catch (error) {
+    console.error(error); 
+    res.status(500).json({ message: "error in server" });
+   }
+})
+
+
+
 
 
 
